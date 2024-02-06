@@ -123,6 +123,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &201498377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6393378929595038062, guid: 0e015c6f1fec25b4e9af0275a19ee06e, type: 3}
+  m_PrefabInstance: {fileID: 762278596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &201498378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201498377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb295365899daa4d8503cf2cde65b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &762278596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,6 +204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sedan
       objectReference: {fileID: 0}
+    - target: {fileID: 8096443153370006047, guid: 0e015c6f1fec25b4e9af0275a19ee06e, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8781343740555810413, guid: 0e015c6f1fec25b4e9af0275a19ee06e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -194,7 +215,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6393378929595038062, guid: 0e015c6f1fec25b4e9af0275a19ee06e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 201498378}
   m_SourcePrefab: {fileID: 100100000, guid: 0e015c6f1fec25b4e9af0275a19ee06e, type: 3}
 --- !u!1 &963194225
 GameObject:
@@ -257,7 +281,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -445,11 +469,8 @@ MonoBehaviour:
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  _wayPoints:
-  - {x: 0, y: 0, z: -14}
-  - {x: 0, y: -9, z: 0}
   _speed: 8
-  _maxCountPrefabsOnWay: 6
+  _maxCountPrefabsOnWay: 8
 --- !u!1 &1423882130
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,13 +9,13 @@ public class ObjectPool : MonoBehaviour
     private List<GameObject> _pool = new List<GameObject>();
     private Vector3 _positionSpawn = new Vector3(0, 0, -12f);
     private int _currentIndexPool = 0;
-    
+
 
     protected void Initialize(GameObject prefab, Quaternion rotation)
     {
-            GameObject spawnedStart = Instantiate(prefab, _positionSpawn, rotation, _container.transform);
-            spawnedStart.SetActive(false);
-            _pool.Add(spawnedStart);
+        GameObject spawnedStart = Instantiate(prefab, _positionSpawn, rotation, _container.transform);
+        spawnedStart.SetActive(false);
+        _pool.Add(spawnedStart);
     }
 
     protected bool TryGetFirstObject(out GameObject result)
@@ -25,6 +25,4 @@ public class ObjectPool : MonoBehaviour
 
         return result != null;
     }
-
-    
 }

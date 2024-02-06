@@ -1,6 +1,6 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class Way : ObjectPool
 {
@@ -12,8 +12,8 @@ public class Way : ObjectPool
     private float _distanceBetweenRoad;
     private List<GameObject> _roads = new List<GameObject>();
     private int _currentRoadsCount;
-    private float _zOffsetDeactivate = -22f;
-    private float _zOffsetToMoveDown = -12f;
+    private float _zOffsetDeactivate = -30f;
+    private float _zOffsetToMoveDown = -17f;
 
     private void Start()
     {
