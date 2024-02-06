@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using System;
 
 public class Way : ObjectPool
 {
@@ -9,22 +8,23 @@ public class Way : ObjectPool
     [SerializeField] private float _speed;
     [SerializeField] private int _maxCountPrefabsOnWay = 5;
 
-    private List<GameObject> _roads = new List<GameObject>();
+    private Quaternion _rotationRoad;
     private float _distanceBetweenRoad;
+    private List<GameObject> _roads = new List<GameObject>();
     private int _currentRoadsCount;
-    private float _zPositionToDeactivate = -25f;
-    private float _endValueMoveDownY = -10f;
-    private float _durationMoveDown = 5f;
-    private float _zPozitionToMoveDown = -9f;
+    private float _zOffsetDeactivate = -22f;
+    private float _zOffsetToMoveDown = -12f;
 
     private void Start()
     {
-        foreach (var road in _roadsPrefabs)
-        {
-            Initialize(road);
-        }
+        _rotationRoad = Quaternion.Euler(45, 0, 0);
+        _distanceBetweenRoad = _roadsPrefabs[0].transform.GetChild(0).GetComponent<Renderer>().bounds.size.z;
 
-        _distanceBetweenRoad = _roadsPrefabs[0].GetComponent<Renderer>().bounds.size.z;
+        for (int i = 0; i < _roadsPrefabs.Length; i++)
+        {
+            Quaternion rotation = (i < _maxCountPrefabsOnWay) ? Quaternion.identity : _rotationRoad;
+            Initialize(_roadsPrefabs[i], rotation);
+        }
     }
 
     private void Update()
@@ -39,12 +39,17 @@ public class Way : ObjectPool
         DeactivateRoad();
     }
 
-    private void SetRoad(GameObject road, float spawnPointsZ)
+    private void Move()
     {
-        road.SetActive(true);
-        road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, spawnPointsZ);
-        _roads.Add(road);
-        _currentRoadsCount++;
+        foreach (var road in _roads)
+        {
+            road.transform.Translate(Vector3.back * _speed * Time.deltaTime, Space.World);
+
+            if (road.transform.localPosition.z < _zOffsetToMoveDown)
+            {
+                road.transform.Translate(Vector3.down * _speed / 2 * Time.deltaTime, Space.World);
+            }
+        }
     }
 
     private void ActivateRoad()
@@ -67,28 +72,24 @@ public class Way : ObjectPool
 
     private void DeactivateRoad()
     {
-        if (_currentRoadsCount > 0 && _roads[0].transform.localPosition.z < _zPositionToDeactivate)
-        {           
+        if (_currentRoadsCount > 0 && _roads[0].transform.localPosition.z < _zOffsetDeactivate)
+        {
             _roads[0].SetActive(false);
             _roads.RemoveAt(0);
-            _currentRoadsCount--;      
+            _currentRoadsCount--;
         }
     }
 
-    private void MoveDown(GameObject road)
+    private void SetRoad(GameObject road, float spawnPointsZ)
     {
-        if (road.transform.localPosition.z < _zPozitionToMoveDown)
-        {
-             road.transform.DOMoveY(_endValueMoveDownY, _durationMoveDown);
-        }
-    }
+        road.SetActive(true);
+        road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, spawnPointsZ);
+        _roads.Add(road);
+        _currentRoadsCount++;
 
-    private void Move()
-    {
-        foreach (var road in _roads)
+        if (_roadsPrefabs.Length > _maxCountPrefabsOnWay)
         {
-            road.transform.Translate(Vector3.back * _speed * Time.deltaTime);
-            MoveDown(road);
+            road.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
         }
     }
 }

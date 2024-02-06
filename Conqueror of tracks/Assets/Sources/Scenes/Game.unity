@@ -429,15 +429,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 1423882130}
   _roadsPrefabs:
-  - {fileID: 7810057893659502122, guid: b4f9afc1d47a6c04a86342de69d918c2, type: 3}
-  - {fileID: 7810057893659502122, guid: b4f9afc1d47a6c04a86342de69d918c2, type: 3}
-  - {fileID: 7810057893659502122, guid: b4f9afc1d47a6c04a86342de69d918c2, type: 3}
-  - {fileID: 7810057893659502122, guid: b4f9afc1d47a6c04a86342de69d918c2, type: 3}
-  - {fileID: 7810057893659502122, guid: b4f9afc1d47a6c04a86342de69d918c2, type: 3}
-  - {fileID: 7810057893659502122, guid: b4f9afc1d47a6c04a86342de69d918c2, type: 3}
-  - {fileID: 7810057893659502122, guid: b4f9afc1d47a6c04a86342de69d918c2, type: 3}
-  _speed: 10
-  _maxCountPrefabsOnWay: 5
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  _wayPoints:
+  - {x: 0, y: 0, z: -14}
+  - {x: 0, y: -9, z: 0}
+  _speed: 8
+  _maxCountPrefabsOnWay: 6
 --- !u!1 &1423882130
 GameObject:
   m_ObjectHideFlags: 0
