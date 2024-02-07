@@ -32,7 +32,7 @@
                     "id": "7b0abfa1-9920-46fc-aa89-e37e726419f4",
                     "path": "<Keyboard>/a",
                     "interactions": "",
-                    "processors": "AxisDeadzone(min=-2,max=2)",
+                    "processors": "",
                     "groups": "Mouse and Keyboard",
                     "action": "Move",
                     "isComposite": false,
