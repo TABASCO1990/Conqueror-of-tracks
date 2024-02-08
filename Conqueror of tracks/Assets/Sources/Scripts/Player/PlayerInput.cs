@@ -15,12 +15,14 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public partial class @PlayerInput: IInputActionCollection2, IDisposable
+namespace Player
 {
-    public InputActionAsset asset { get; }
-    public @PlayerInput()
+    public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
-        asset = InputActionAsset.FromJson(@"{
+        public InputActionAsset asset { get; }
+        public @PlayerInput()
+        {
+            asset = InputActionAsset.FromJson(@"{
     ""name"": ""PlayerInput"",
     ""maps"": [
         {
@@ -61,11 +63,121 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""left"",
+                    ""id"": ""7e7edb86-d8a8-4f58-850b-80c666e80fba"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d07c226e-f8f1-48bf-b345-2745f5a6ae70"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""1cb12636-e281-4567-aa87-850f3eb0d768"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2f33457b-5a8a-4e52-bb46-8bd3fe9ee448"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-10,max=10)"",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""81121f93-639b-482e-b713-12fb2ea6e48c"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta/up"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-10,max=10)"",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""right"",
                     ""id"": ""0b9f4373-7a1d-4e9f-86f7-e29824b141bf"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f0c5c974-b3e1-4e43-be54-6065d83f9472"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""fbae5bad-a10a-4dc2-818c-256df466c414"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5de3e327-d266-4149-a117-340b7068c6a9"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d98d1024-9542-440e-8bab-e4fec7cc9ac2"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-10,max=10)"",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5bf5119e-411c-4541-bde1-a973008d0391"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta/down"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-10,max=10)"",
                     ""groups"": ""Mouse and Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
@@ -93,123 +205,124 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     ]
 }");
+            // Player
+            m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+            m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        }
+
+        public void Dispose()
+        {
+            UnityEngine.Object.Destroy(asset);
+        }
+
+        public InputBinding? bindingMask
+        {
+            get => asset.bindingMask;
+            set => asset.bindingMask = value;
+        }
+
+        public ReadOnlyArray<InputDevice>? devices
+        {
+            get => asset.devices;
+            set => asset.devices = value;
+        }
+
+        public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
+
+        public bool Contains(InputAction action)
+        {
+            return asset.Contains(action);
+        }
+
+        public IEnumerator<InputAction> GetEnumerator()
+        {
+            return asset.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public void Enable()
+        {
+            asset.Enable();
+        }
+
+        public void Disable()
+        {
+            asset.Disable();
+        }
+
+        public IEnumerable<InputBinding> bindings => asset.bindings;
+
+        public InputAction FindAction(string actionNameOrId, bool throwIfNotFound = false)
+        {
+            return asset.FindAction(actionNameOrId, throwIfNotFound);
+        }
+
+        public int FindBinding(InputBinding bindingMask, out InputAction action)
+        {
+            return asset.FindBinding(bindingMask, out action);
+        }
+
         // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-    }
-
-    public void Dispose()
-    {
-        UnityEngine.Object.Destroy(asset);
-    }
-
-    public InputBinding? bindingMask
-    {
-        get => asset.bindingMask;
-        set => asset.bindingMask = value;
-    }
-
-    public ReadOnlyArray<InputDevice>? devices
-    {
-        get => asset.devices;
-        set => asset.devices = value;
-    }
-
-    public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
-
-    public bool Contains(InputAction action)
-    {
-        return asset.Contains(action);
-    }
-
-    public IEnumerator<InputAction> GetEnumerator()
-    {
-        return asset.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    public void Enable()
-    {
-        asset.Enable();
-    }
-
-    public void Disable()
-    {
-        asset.Disable();
-    }
-
-    public IEnumerable<InputBinding> bindings => asset.bindings;
-
-    public InputAction FindAction(string actionNameOrId, bool throwIfNotFound = false)
-    {
-        return asset.FindAction(actionNameOrId, throwIfNotFound);
-    }
-
-    public int FindBinding(InputBinding bindingMask, out InputAction action)
-    {
-        return asset.FindBinding(bindingMask, out action);
-    }
-
-    // Player
-    private readonly InputActionMap m_Player;
-    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Move;
-    public struct PlayerActions
-    {
-        private @PlayerInput m_Wrapper;
-        public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerActions instance)
+        private readonly InputActionMap m_Player;
+        private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
+        private readonly InputAction m_Player_Move;
+        public struct PlayerActions
         {
-            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-        }
+            private @PlayerInput m_Wrapper;
+            public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Move => m_Wrapper.m_Player_Move;
+            public InputActionMap Get() { return m_Wrapper.m_Player; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+            public void AddCallbacks(IPlayerActions instance)
+            {
+                if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+            }
 
-        private void UnregisterCallbacks(IPlayerActions instance)
-        {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-        }
+            private void UnregisterCallbacks(IPlayerActions instance)
+            {
+                @Move.started -= instance.OnMove;
+                @Move.performed -= instance.OnMove;
+                @Move.canceled -= instance.OnMove;
+            }
 
-        public void RemoveCallbacks(IPlayerActions instance)
-        {
-            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
+            public void RemoveCallbacks(IPlayerActions instance)
+            {
+                if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
 
-        public void SetCallbacks(IPlayerActions instance)
-        {
-            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
+            public void SetCallbacks(IPlayerActions instance)
+            {
+                foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
         }
-    }
-    public PlayerActions @Player => new PlayerActions(this);
-    private int m_MouseandKeyboardSchemeIndex = -1;
-    public InputControlScheme MouseandKeyboardScheme
-    {
-        get
+        public PlayerActions @Player => new PlayerActions(this);
+        private int m_MouseandKeyboardSchemeIndex = -1;
+        public InputControlScheme MouseandKeyboardScheme
         {
-            if (m_MouseandKeyboardSchemeIndex == -1) m_MouseandKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse and Keyboard");
-            return asset.controlSchemes[m_MouseandKeyboardSchemeIndex];
+            get
+            {
+                if (m_MouseandKeyboardSchemeIndex == -1) m_MouseandKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse and Keyboard");
+                return asset.controlSchemes[m_MouseandKeyboardSchemeIndex];
+            }
         }
-    }
-    public interface IPlayerActions
-    {
-        void OnMove(InputAction.CallbackContext context);
+        public interface IPlayerActions
+        {
+            void OnMove(InputAction.CallbackContext context);
+        }
     }
 }

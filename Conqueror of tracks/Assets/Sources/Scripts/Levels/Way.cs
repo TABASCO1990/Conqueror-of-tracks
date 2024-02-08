@@ -2,94 +2,102 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Way : ObjectPool
+namespace Levels
 {
-    [SerializeField] private GameObject[] _roadsPrefabs;
-    [SerializeField] private float _speed;
-    [SerializeField] private int _maxCountPrefabsOnWay = 5;
-
-    private Quaternion _rotationRoad;
-    private float _distanceBetweenRoad;
-    private List<GameObject> _roads = new List<GameObject>();
-    private int _currentRoadsCount;
-    private float _zOffsetDeactivate = -30f;
-    private float _zOffsetToMoveDown = -17f;
-
-    private void Start()
+    public class Way : ObjectPool
     {
-        _rotationRoad = Quaternion.Euler(45, 0, 0);
-        _distanceBetweenRoad = _roadsPrefabs[0].transform.GetChild(0).GetComponent<Renderer>().bounds.size.z;
+        [SerializeField] private GameObject[] _roadsPrefabs;
+        [SerializeField] private float _speed;
+        [SerializeField] private int _maxCountPrefabsOnWay = 5;
 
-        for (int i = 0; i < _roadsPrefabs.Length; i++)
+        private Quaternion _rotationRoad;
+        private float _distanceBetweenRoad;
+        private List<GameObject> _roads = new List<GameObject>();
+        private int _currentRoadsCount;
+        private float _zOffsetDeactivate = -30f;
+        private float _zOffsetToMoveDown = -20f;
+
+        private void Start()
         {
-            Quaternion rotation = (i < _maxCountPrefabsOnWay) ? Quaternion.identity : _rotationRoad;
-            Initialize(_roadsPrefabs[i], rotation);
-        }
-    }
+            _rotationRoad = Quaternion.Euler(45, 0, 0);
+            _distanceBetweenRoad = _roadsPrefabs[0].transform.GetChild(0).GetComponent<Renderer>().bounds.size.z;
 
-    private void Update()
-    {
-        Move();
-
-        if (_currentRoadsCount != _maxCountPrefabsOnWay)
-        {
-            ActivateRoad();
-        }
-
-        DeactivateRoad();
-    }
-
-    private void Move()
-    {
-        foreach (var road in _roads)
-        {
-            road.transform.Translate(Vector3.back * _speed * Time.deltaTime, Space.World);
-
-            if (road.transform.localPosition.z < _zOffsetToMoveDown)
+            for (int i = 0; i < _roadsPrefabs.Length; i++)
             {
-                road.transform.Translate(Vector3.down * _speed / 2 * Time.deltaTime, Space.World);
+                Quaternion rotation = (i < _maxCountPrefabsOnWay) ? Quaternion.identity : _rotationRoad;
+                Initialize(_roadsPrefabs[i], rotation);
+            }
+            for (int i = 0; i < _maxCountPrefabsOnWay; i++)
+            {
+                ActivateRoad();
+            }
+
+        }
+
+        private void Update()
+        {
+            Move();
+
+            if (_currentRoadsCount != _maxCountPrefabsOnWay)
+            {
+                ActivateRoad();
+            }
+
+            DeactivateRoad();
+        }
+
+        private void Move()
+        {
+            foreach (var road in _roads)
+            {
+                road.transform.Translate(Vector3.back * _speed * Time.deltaTime, Space.World);
+
+                if (road.transform.localPosition.z < _zOffsetToMoveDown)
+                {
+                    road.transform.Translate(Vector3.down * _speed / 2 * Time.deltaTime, Space.World);
+                }
             }
         }
-    }
 
-    private void ActivateRoad()
-    {
-        if (_roads.Count > 0)
+        private void ActivateRoad()
         {
-            if (TryGetFirstObject(out GameObject road))
+            if (_roads.Count > 0)
             {
-                SetRoad(road, _roads[_roads.Count - 1].transform.position.z + _distanceBetweenRoad);
+                if (TryGetFirstObject(out GameObject road))
+                {
+                    SetRoad(road, _roads[_roads.Count - 1].transform.position.z + _distanceBetweenRoad);
+                }
+            }
+            else if (_roads.Count == 0)
+            {
+                if (TryGetFirstObject(out GameObject road))
+                {
+                    SetRoad(road, road.transform.position.z);
+                }
             }
         }
-        else if (_roads.Count == 0)
+
+        private void DeactivateRoad()
         {
-            if (TryGetFirstObject(out GameObject road))
+            if (_currentRoadsCount > 0 && _roads[0].transform.localPosition.z < _zOffsetDeactivate)
             {
-                SetRoad(road, road.transform.position.z);
+                _roads[0].SetActive(false);
+                _roads.RemoveAt(0);
+                _currentRoadsCount--;
             }
         }
-    }
 
-    private void DeactivateRoad()
-    {
-        if (_currentRoadsCount > 0 && _roads[0].transform.localPosition.z < _zOffsetDeactivate)
+        private void SetRoad(GameObject road, float spawnPointsZ)
         {
-            _roads[0].SetActive(false);
-            _roads.RemoveAt(0);
-            _currentRoadsCount--;
-        }
-    }
+            road.SetActive(true);
+            road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, spawnPointsZ);
+            _roads.Add(road);
+            _currentRoadsCount++;
 
-    private void SetRoad(GameObject road, float spawnPointsZ)
-    {
-        road.SetActive(true);
-        road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, spawnPointsZ);
-        _roads.Add(road);
-        _currentRoadsCount++;
-
-        if (_roadsPrefabs.Length > _maxCountPrefabsOnWay)
-        {
-            road.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
+            if (_roadsPrefabs.Length > _maxCountPrefabsOnWay)
+            {
+                road.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
+            }
         }
     }
 }
