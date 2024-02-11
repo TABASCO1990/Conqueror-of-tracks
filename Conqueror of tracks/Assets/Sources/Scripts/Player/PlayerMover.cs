@@ -6,7 +6,7 @@ namespace Player
 {
     public class PlayerMover : MonoBehaviour
     {
-        private const float OffsetX = 2f;
+        private const float OffsetX = 2.5f;
 
         private PlayerInput _input;
         private Vector2 _moveDirecton;
@@ -34,7 +34,7 @@ namespace Player
             _moveDirecton = _input.Player.Move.ReadValue<Vector2>() * OffsetX;
             _targetPosition = _moveDirecton.normalized.x * transform.position.x;
 
-            if (!_animationOffset.IsActive() && _targetPosition != 2)
+            if (!_animationOffset.IsActive() && _targetPosition != 2.5)
             {
                 StartCoroutine(ChangedOffset(_moveDirecton));
             }

@@ -1,39 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
+using Levels;
 using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField] private StartScreen _startScreen;
-    [SerializeField] private LevelScreen _levelScreen;
+    [SerializeField] private GameObject _pauseScreen;
+    
 
-    private void OnEnable()
-    {
-        _startScreen.PlayButtonClick += OnPlayButtonClick;
-        _levelScreen.MenuButtonClick += OnMenuButtonClick;
+    public void Reload()
+    { 
+        Way.instance.gameObject.SetActive(false);
+        _pauseScreen.SetActive(false);
+        Way.instance.gameObject.SetActive(true);
+        Time.timeScale = 1;
     }
 
-    private void OnDisable()
+    public void Home()
     {
-        _startScreen.PlayButtonClick -= OnPlayButtonClick;
-        _levelScreen.MenuButtonClick -= OnMenuButtonClick;
+        Way.instance.gameObject.SetActive(false);
+        Time.timeScale = 1;
+        _pauseScreen.SetActive(false);
     }
 
-    private void Start()
+    public void Resume()
     {
-        _startScreen.Open();
+        _pauseScreen.SetActive(false);
+        Time.timeScale = 1;
     }
 
-    private void OnPlayButtonClick()
+    public void Pause()
     {
-        _startScreen.Close();
-        _levelScreen.Open();
-    }
-
-    private void OnMenuButtonClick()
-    {
-        _levelScreen.Close();
-        _startScreen.Open();
+        Time.timeScale = 0;
     }
 
 

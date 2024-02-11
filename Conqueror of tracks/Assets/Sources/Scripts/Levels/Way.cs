@@ -16,38 +16,50 @@ namespace Levels
         private int _currentRoadsCount;
         private float _zOffsetDeactivate = -30f;
         private float _zOffsetToMoveDown = -20f;
+        private bool _isMoving;
 
-        private void Start()
+        public static Way instance = null;
+
+        private void OnEnable()
         {
-            _rotationRoad = Quaternion.Euler(45, 0, 0);
-            _distanceBetweenRoad = _roadsPrefabs[0].transform.GetChild(0).GetComponent<Renderer>().bounds.size.z;
-
-            for (int i = 0; i < _roadsPrefabs.Length; i++)
-            {
-                Quaternion rotation = (i < _maxCountPrefabsOnWay) ? Quaternion.identity : _rotationRoad;
-                Initialize(_roadsPrefabs[i], rotation);
-            }
-            for (int i = 0; i < _maxCountPrefabsOnWay; i++)
-            {
-                ActivateRoad();
-            }
-
+            ResetRoad();
+            InstanceRoad();
         }
 
+        private void OnDisable()
+        {
+            ResetRoad();
+        }
+
+        void Start()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance == this)
+            {
+                Destroy(gameObject);
+            }
+        }
         private void Update()
         {
-            Move();
-
-            if (_currentRoadsCount != _maxCountPrefabsOnWay)
+            if (_isMoving)
             {
-                ActivateRoad();
-            }
+                Move();
 
-            DeactivateRoad();
+                if (_currentRoadsCount == _maxCountPrefabsOnWay)
+                {
+                    ActivateRoad();
+                }
+
+                DeactivateRoad();
+            }
         }
 
         private void Move()
         {
+            print("move");
             foreach (var road in _roads)
             {
                 road.transform.Translate(Vector3.back * _speed * Time.deltaTime, Space.World);
@@ -61,6 +73,7 @@ namespace Levels
 
         private void ActivateRoad()
         {
+            print("ActivateRoad");
             if (_roads.Count > 0)
             {
                 if (TryGetFirstObject(out GameObject road))
@@ -72,6 +85,7 @@ namespace Levels
             {
                 if (TryGetFirstObject(out GameObject road))
                 {
+                    print("SetRoad IN");
                     SetRoad(road, road.transform.position.z);
                 }
             }
@@ -79,16 +93,19 @@ namespace Levels
 
         private void DeactivateRoad()
         {
+            print("DeactivateRoad");
             if (_currentRoadsCount > 0 && _roads[0].transform.localPosition.z < _zOffsetDeactivate)
             {
                 _roads[0].SetActive(false);
                 _roads.RemoveAt(0);
                 _currentRoadsCount--;
+                _isMoving = _currentRoadsCount > 0;
             }
         }
 
         private void SetRoad(GameObject road, float spawnPointsZ)
         {
+            print("SetRoad");
             road.SetActive(true);
             road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, spawnPointsZ);
             _roads.Add(road);
@@ -98,6 +115,30 @@ namespace Levels
             {
                 road.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
             }
+        }
+
+        private void InstanceRoad()
+        {
+            _rotationRoad = Quaternion.Euler(45, 0, 0);
+            _distanceBetweenRoad = _roadsPrefabs[0].transform.GetChild(0).GetComponent<Renderer>().bounds.size.z;
+
+            for (int i = 0; i < _roadsPrefabs.Length; i++)
+            {
+                Quaternion rotation = (i < _maxCountPrefabsOnWay) ? Quaternion.identity : _rotationRoad;
+                Initialize(_roadsPrefabs[i], rotation);
+            }
+            for (int i = 0; i < _maxCountPrefabsOnWay; i++)
+            {
+                ActivateRoad();
+            }
+        }
+
+        public void ResetRoad()
+        {
+            _isMoving = true;
+            _currentRoadsCount = 0;
+            ClearObject();
+            _roads.Clear();
         }
     }
 }
