@@ -33,14 +33,7 @@ namespace Levels
 
         void Start()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else if (instance == this)
-            {
-                Destroy(gameObject);
-            }
+            
         }
         private void Update()
         {
@@ -59,7 +52,6 @@ namespace Levels
 
         private void Move()
         {
-            print("move");
             foreach (var road in _roads)
             {
                 road.transform.Translate(Vector3.back * _speed * Time.deltaTime, Space.World);
@@ -73,7 +65,6 @@ namespace Levels
 
         private void ActivateRoad()
         {
-            print("ActivateRoad");
             if (_roads.Count > 0)
             {
                 if (TryGetFirstObject(out GameObject road))
@@ -85,7 +76,6 @@ namespace Levels
             {
                 if (TryGetFirstObject(out GameObject road))
                 {
-                    print("SetRoad IN");
                     SetRoad(road, road.transform.position.z);
                 }
             }
@@ -93,7 +83,6 @@ namespace Levels
 
         private void DeactivateRoad()
         {
-            print("DeactivateRoad");
             if (_currentRoadsCount > 0 && _roads[0].transform.localPosition.z < _zOffsetDeactivate)
             {
                 _roads[0].SetActive(false);
@@ -105,7 +94,6 @@ namespace Levels
 
         private void SetRoad(GameObject road, float spawnPointsZ)
         {
-            print("SetRoad");
             road.SetActive(true);
             road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, spawnPointsZ);
             _roads.Add(road);

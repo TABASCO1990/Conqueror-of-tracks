@@ -5,6 +5,7 @@ namespace UI.ScreenSwitch
         Start,
         LevelPicker,
         Leaderboard,
-        Pause
+        Pause,
+        Win
     }
 }

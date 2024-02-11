@@ -34,7 +34,6 @@ namespace Levels
         {
             result = _pool.Skip(_currentIndexPool).FirstOrDefault(p => !p.activeSelf);
             _currentIndexPool++;
-            print(_currentIndexPool);
             return result != null;
         }
     }
