@@ -1,25 +1,28 @@
 using UnityEngine;
 using DG.Tweening;
 
-[RequireComponent(typeof(RectTransform))]
-public class SizeButton : MonoBehaviour
+namespace UI
 {
-    private RectTransform _buttonPlay;
-
-    private void OnEnable()
+    [RequireComponent(typeof(RectTransform))]
+    public class SizeButton : MonoBehaviour
     {
-        _buttonPlay = GetComponent<RectTransform>();
-        OnScale();
-    }
+        private RectTransform _buttonPlay;
 
-    private void OnDisable()
-    {
-        DOTween.Kill(_buttonPlay);
-        _buttonPlay.localScale = Vector3.one;
-    }
+        private void OnEnable()
+        {
+            _buttonPlay = GetComponent<RectTransform>();
+            OnScale();
+        }
 
-    private void OnScale()
-    {
-        _buttonPlay.DOScale(new Vector2(1.2f, 1.2f), 0.5f).SetLoops(-1, LoopType.Yoyo);        
+        private void OnDisable()
+        {
+            DOTween.Kill(_buttonPlay);
+            _buttonPlay.localScale = Vector3.one;
+        }
+
+        private void OnScale()
+        {
+            _buttonPlay.DOScale(new Vector2(1.2f, 1.2f), 0.5f).SetLoops(-1, LoopType.Yoyo);
+        }
     }
 }

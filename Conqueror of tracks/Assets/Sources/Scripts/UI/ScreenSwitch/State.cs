@@ -6,6 +6,7 @@ namespace UI.ScreenSwitch
         LevelPicker,
         Leaderboard,
         Pause,
-        Win
+        Win,
+        TheGameIsOver
     }
 }

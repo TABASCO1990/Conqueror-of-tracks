@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class WinScreen : MonoBehaviour
+    public class GameIsOverScreen : MonoBehaviour
     {
         [SerializeField] private GameObject[] _gameObjects;
 

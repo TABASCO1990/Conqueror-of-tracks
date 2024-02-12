@@ -1,40 +1,44 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Game;
 
 namespace Levels
 {
     public class Way : ObjectPool
     {
         [SerializeField] private GameObject[] _roadsPrefabs;
-        [SerializeField] private float _speed;
-        [SerializeField] private int _maxCountPrefabsOnWay = 5;
+        [SerializeField] private int _maxCountPrefabsOnWay;
+        [SerializeField] private DataHolder _holer;
 
-        private Quaternion _rotationRoad;
-        private float _distanceBetweenRoad;
         private List<GameObject> _roads = new List<GameObject>();
+        private Quaternion _rotationRoad;
+        private int _currentTime;
         private int _currentRoadsCount;
+        private float _speed;
+        private float _distance;
+        private float _distanceBetweenRoad;
         private float _zOffsetDeactivate = -30f;
         private float _zOffsetToMoveDown = -20f;
-        private bool _isMoving;
 
-        public static Way instance = null;
+        public static bool _isMoving;
+
+        public static event Action<float> ChengedDistance;
 
         private void OnEnable()
         {
+
             ResetRoad();
             InstanceRoad();
         }
 
         private void OnDisable()
         {
-            ResetRoad();
+            StopCoroutine(ExecuteAfterTime());
         }
 
-        void Start()
-        {
-            
-        }
         private void Update()
         {
             if (_isMoving)
@@ -48,6 +52,18 @@ namespace Levels
 
                 DeactivateRoad();
             }
+
+        }
+
+        public void ResetRoad()
+        {
+            _speed = _holer.GetComponent<IController>().CurrentSpeed;
+            _currentTime = 0;
+            _currentRoadsCount = 0;
+            _isMoving = true;
+            StartCoroutine(ExecuteAfterTime());
+            ClearObject();
+            _roads.Clear();
         }
 
         private void Move()
@@ -88,7 +104,6 @@ namespace Levels
                 _roads[0].SetActive(false);
                 _roads.RemoveAt(0);
                 _currentRoadsCount--;
-                _isMoving = _currentRoadsCount > 0;
             }
         }
 
@@ -121,12 +136,15 @@ namespace Levels
             }
         }
 
-        public void ResetRoad()
+        private IEnumerator ExecuteAfterTime()
         {
-            _isMoving = true;
-            _currentRoadsCount = 0;
-            ClearObject();
-            _roads.Clear();
+            while (_isMoving)
+            {
+                _distance = _speed * _currentTime;
+                ChengedDistance?.Invoke(_distance);
+                _currentTime++;
+                yield return new WaitForSeconds(1);
+            }
         }
     }
 }

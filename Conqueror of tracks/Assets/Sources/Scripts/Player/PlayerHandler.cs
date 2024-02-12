@@ -10,7 +10,6 @@ namespace Player
         {
             if (other.TryGetComponent(out FinishPoint finishPoint))
             {
-                print("Ok");
                 _winScreen.SetActive(true);
             }
         }

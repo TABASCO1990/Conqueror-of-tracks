@@ -1,4 +1,6 @@
 using UnityEngine;
+using Game;
+using Levels;
 
 public class FinishPoint : MonoBehaviour
 {
@@ -6,8 +8,8 @@ public class FinishPoint : MonoBehaviour
     {
         if (other.TryGetComponent(out Player.Player player))
         {
-            print(PlayerPrefs.GetInt("UnlockedLevel"));
             UnlockNewLevel();
+            Way._isMoving = false;
         }
     }
 
