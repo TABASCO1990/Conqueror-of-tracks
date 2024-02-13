@@ -4,32 +4,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Game;
+using UI;
 
 namespace Levels
 {
     public class Way : ObjectPool
     {
+        public static bool _isMoving;
+
         [SerializeField] private GameObject[] _roadsPrefabs;
         [SerializeField] private int _maxCountPrefabsOnWay;
-        [SerializeField] private DataHolder _holer;
+        [SerializeField] private DataHolder _holder;
+        [SerializeField] private float _speed;
 
         private List<GameObject> _roads = new List<GameObject>();
         private Quaternion _rotationRoad;
         private int _currentTime;
         private int _currentRoadsCount;
-        private float _speed;
         private float _distance;
         private float _distanceBetweenRoad;
         private float _zOffsetDeactivate = -30f;
         private float _zOffsetToMoveDown = -20f;
 
-        public static bool _isMoving;
+        public float Speed => _speed;
 
         public static event Action<float> ChengedDistance;
 
         private void OnEnable()
         {
-
             ResetRoad();
             InstanceRoad();
         }
@@ -52,16 +54,18 @@ namespace Levels
 
                 DeactivateRoad();
             }
-
         }
 
         public void ResetRoad()
         {
-            _speed = _holer.GetComponent<IController>().CurrentSpeed;
+            _holder.CurrentSpeed = _speed;
+            _holder.CurrentCoins = -1;  
             _currentTime = 0;
             _currentRoadsCount = 0;
             _isMoving = true;
             StartCoroutine(ExecuteAfterTime());
+            _holder.AddCoins();
+            _holder.SetSpeed();
             ClearObject();
             _roads.Clear();
         }

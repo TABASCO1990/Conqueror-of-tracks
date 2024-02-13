@@ -1,16 +1,26 @@
+using System;
 using UnityEngine;
 
 namespace Game
 {
     public class DataHolder : MonoBehaviour, IController
     {
-        [SerializeField] private float Speed;
+        public float CurrentSpeed { get; set; }
+        public int CurrentCoins { get; set; }
 
-        public float CurrentSpeed { get => Speed; set => value = Speed; }
+        public event Action<int> AddingCoins;
+        public event Action<float> SetedSpeed;
 
-        private void Awake()
+        public void AddCoins()
         {
-            CurrentSpeed = Speed;
+            CurrentCoins++;
+            print(CurrentCoins);
+            AddingCoins?.Invoke(CurrentCoins);
+        }
+
+        public void SetSpeed()
+        {
+            SetedSpeed?.Invoke(CurrentSpeed);
         }
     }
 }
