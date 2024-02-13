@@ -1,6 +1,7 @@
 using UnityEngine;
 using Game;
 using Levels;
+using Player;
 
 public class FinishPoint : MonoBehaviour
 {

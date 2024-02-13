@@ -9,6 +9,7 @@ namespace Game
         [SerializeField] private GameObject _pauseScreen;
         [SerializeField] private GameObject _winScreen;
         [SerializeField] private GameObject _InfomationBoard;
+        [SerializeField] private Player.Player _player;
 
         private void OnEnable()
         {
@@ -25,6 +26,7 @@ namespace Game
             _currentLevel.SetActive(false);
             _pauseScreen.SetActive(false);
             _currentLevel.SetActive(true);
+            _player.transform.localPosition = Vector3.zero;
             Time.timeScale = 1;
         }
 
@@ -34,6 +36,7 @@ namespace Game
             _InfomationBoard.SetActive(true);
             _winScreen.SetActive(false);
             _currentLevel.SetActive(true);
+            _player.transform.localPosition = Vector3.zero;
         }
 
         public void Home()
@@ -41,6 +44,7 @@ namespace Game
             _currentLevel.SetActive(false);
             Time.timeScale = 1;
             _pauseScreen.SetActive(false);
+            _player.transform.localPosition = Vector3.zero;
         }
 
         public void Resume()
@@ -58,6 +62,7 @@ namespace Game
         {
             _currentLevel.SetActive(false);
             _levelSelection.SetLevel();
+            _player.transform.localPosition = Vector3.zero;
         }
 
         private void OnSettledLevel(GameObject map)

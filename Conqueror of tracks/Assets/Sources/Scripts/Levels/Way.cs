@@ -5,6 +5,9 @@ using UnityEngine;
 using DG.Tweening;
 using Game;
 using UI;
+using System.ComponentModel;
+using Unity.VisualScripting;
+using Enemy;
 
 namespace Levels
 {
@@ -13,8 +16,8 @@ namespace Levels
         public static bool _isMoving;
 
         [SerializeField] private GameObject[] _roadsPrefabs;
-        [SerializeField] private int _maxCountPrefabsOnWay;
         [SerializeField] private DataHolder _holder;
+        [SerializeField] private int _maxCountPrefabsOnWay;   
         [SerializeField] private float _speed;
 
         private List<GameObject> _roads = new List<GameObject>();
@@ -58,6 +61,7 @@ namespace Levels
 
         public void ResetRoad()
         {
+            DestroyCars();
             _holder.CurrentSpeed = _speed;
             _holder.CurrentCoins = -1;  
             _currentTime = 0;
@@ -137,6 +141,15 @@ namespace Levels
             for (int i = 0; i < _maxCountPrefabsOnWay; i++)
             {
                 ActivateRoad();
+            }
+        }
+
+        private void DestroyCars()
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).GetComponent<Car>())
+                    Destroy(transform.GetChild(i).gameObject);
             }
         }
 
