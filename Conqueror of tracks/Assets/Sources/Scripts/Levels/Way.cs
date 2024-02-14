@@ -29,7 +29,18 @@ namespace Levels
         private float _zOffsetDeactivate = -30f;
         private float _zOffsetToMoveDown = -20f;
 
-        public float Speed => _speed;
+        public float Speed
+        {
+            get
+            {
+                return _speed;
+            }
+
+            set
+            {
+                _speed = value;
+            }
+        }
 
         public static event Action<float> ChengedDistance;
 
@@ -56,6 +67,15 @@ namespace Levels
                 }
 
                 DeactivateRoad();
+            }
+        }
+
+        public void DestroyCars()
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).GetComponent<Car>())
+                    Destroy(transform.GetChild(i).gameObject);
             }
         }
 
@@ -144,14 +164,7 @@ namespace Levels
             }
         }
 
-        private void DestroyCars()
-        {
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                if (transform.GetChild(i).GetComponent<Car>())
-                    Destroy(transform.GetChild(i).gameObject);
-            }
-        }
+        
 
         private IEnumerator ExecuteAfterTime()
         {

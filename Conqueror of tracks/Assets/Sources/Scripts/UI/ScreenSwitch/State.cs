@@ -7,6 +7,7 @@ namespace UI.ScreenSwitch
         Leaderboard,
         Pause,
         Win,
-        TheGameIsOver
+        TheGameIsOver,
+        Lose
     }
 }

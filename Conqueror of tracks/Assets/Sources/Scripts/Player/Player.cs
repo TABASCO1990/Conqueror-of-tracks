@@ -7,9 +7,7 @@ namespace Player
 {
     public class Player : MonoBehaviour
     {
-        //private int _countCoins;
-
-        
+            
 
         
     }

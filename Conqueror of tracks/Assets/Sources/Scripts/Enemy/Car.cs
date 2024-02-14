@@ -3,16 +3,16 @@ using Levels;
 
 namespace Enemy
 {
-    public class Car : MonoBehaviour
+    public abstract class Car : MonoBehaviour
     {
-        [SerializeField] private float _speed;
+        [SerializeField] protected float _speed;
 
-        private float _Speed;
+        private float _SpeedRoad;
 
         private void Start()
         {
-            _Speed = transform.parent.GetComponent<Way>().Speed;
-            _speed = Random.Range(_Speed / 3, _Speed - 1);
+            _SpeedRoad = transform.parent.GetComponent<Way>().Speed;
+            _speed = Random.Range(_SpeedRoad / 3, _SpeedRoad - 1);
         }
 
         private void Update()
@@ -21,10 +21,7 @@ namespace Enemy
             Delete();
         }
 
-        private void Move()
-        {
-            transform.Translate(Vector3.back * _speed * Time.deltaTime);
-        }
+        protected abstract void Move();
 
         private void Delete()
         {

@@ -8,6 +8,8 @@ namespace Level
         [SerializeField] private Car _car;
         [SerializeField] private float _offsetX;
 
+        public float OffsetX => _offsetX;
+
         void Start()
         {
             SetCar();
