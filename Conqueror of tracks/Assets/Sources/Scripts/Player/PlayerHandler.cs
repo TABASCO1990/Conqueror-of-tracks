@@ -4,6 +4,7 @@ using Enemy;
 using DG.Tweening;
 using System.Collections;
 using Levels;
+using TMPro;
 
 namespace Player
 {
@@ -14,6 +15,7 @@ namespace Player
         [SerializeField] private GameObject _loseScreen;
         [SerializeField] private CanvasGroup _canvasGroupLose;
         [SerializeField] private DataHolder _dataHolder;
+        [SerializeField] private TMP_Text _lineDead;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -28,6 +30,7 @@ namespace Player
             }
             else if (other.TryGetComponent(out Car car))
             {
+                StartCoroutine(InitializeDeadLine());
                 SetAnimationCrashEnemy(car);
                 SetAnimationCrashPlayer();
                 Destroy(car.gameObject, 1f);
@@ -80,6 +83,13 @@ namespace Player
                 yield return null;
                 time += Time.deltaTime;
             }
+        }
+
+        private IEnumerator InitializeDeadLine()
+        {
+            _lineDead.enabled = true;
+            yield return new WaitForSeconds(0.2f);
+            _lineDead.enabled = false;
         }
     }
 }

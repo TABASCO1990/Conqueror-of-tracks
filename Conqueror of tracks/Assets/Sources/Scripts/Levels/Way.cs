@@ -26,6 +26,7 @@ namespace Levels
         private float _distanceBetweenRoad;
         private float _zOffsetDeactivate = -30f;
         private float _zOffsetToMoveDown = -20f;
+        private GameObject _prefabPoint;
 
         public static event Action<float> ChengedDistance;
 
@@ -83,7 +84,7 @@ namespace Levels
         {
             DOTween.KillAll();
             DestroyCars();
-            Destroy(_pointDead);
+            Destroy(_prefabPoint);           
             _holder.CurrentSpeed = _speed;
             _holder.CurrentCoins = -1;
             _currentTime = 0;
@@ -173,7 +174,7 @@ namespace Levels
         private void SetPointDed()
         {
             Vector3 positionPointDead = new Vector3(0, 0, _zOffsetToMoveDown + _distanceBetweenRoad / 2);
-            Instantiate(_pointDead, positionPointDead, Quaternion.identity, this.transform);
+            _prefabPoint = Instantiate(_pointDead, positionPointDead, Quaternion.identity, this.transform);
         }
 
         private IEnumerator ExecuteAfterTime()
