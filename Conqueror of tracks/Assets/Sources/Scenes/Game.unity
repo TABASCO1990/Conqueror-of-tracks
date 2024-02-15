@@ -1215,7 +1215,9 @@ MonoBehaviour:
   _currentLevel: {fileID: 0}
   _pauseScreen: {fileID: 29854482}
   _winScreen: {fileID: 1811483991}
+  _loseScreen: {fileID: 1080835172}
   _InfomationBoard: {fileID: 1864547241}
+  _pointdead: {fileID: 0}
   _player: {fileID: 7618497}
 --- !u!4 &223389818
 Transform:
@@ -1815,6 +1817,7 @@ MonoBehaviour:
   - {fileID: 29854482}
   - {fileID: 1811483991}
   - {fileID: 572080702}
+  - {fileID: 1080835172}
   _stateButtonPairs:
   - _state: 1
     _button: {fileID: 1213473259}
@@ -1832,6 +1835,8 @@ MonoBehaviour:
     _button: {fileID: 709090268}
   - _state: 0
     _button: {fileID: 885106846}
+  - _state: 0
+    _button: {fileID: 2133120583}
 --- !u!1 &321525816
 GameObject:
   m_ObjectHideFlags: 0
@@ -7970,6 +7975,8 @@ GameObject:
   - component: {fileID: 1080835176}
   - component: {fileID: 1080835175}
   - component: {fileID: 1080835174}
+  - component: {fileID: 1080835177}
+  - component: {fileID: 1080835178}
   m_Layer: 5
   m_Name: Lose Screen
   m_TagString: Untagged
@@ -8049,6 +8056,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080835172}
   m_CullTransparentMesh: 1
+--- !u!114 &1080835177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080835172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0892f2b0b82e41a4a8d32c3792118407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObjects:
+  - {fileID: 488607781}
+--- !u!225 &1080835178
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080835172}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1083448833
 GameObject:
   m_ObjectHideFlags: 0
@@ -9494,6 +9527,7 @@ MonoBehaviour:
   - {fileID: 1190054656782155414, guid: 7406907c2fed0c6459877283ad4a0c35, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   _holder: {fileID: 223389819}
+  _pointDead: {fileID: 5874619797682430004, guid: e3048f222d936dd45a1324d0acbed211, type: 3}
   _maxCountPrefabsOnWay: 8
   _speed: 9
 --- !u!1 &1357943013
@@ -9628,6 +9662,7 @@ MonoBehaviour:
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   _holder: {fileID: 223389819}
+  _pointDead: {fileID: 5874619797682430004, guid: e3048f222d936dd45a1324d0acbed211, type: 3}
   _maxCountPrefabsOnWay: 8
   _speed: 10
 --- !u!1 &1380870531
@@ -9988,8 +10023,8 @@ MonoBehaviour:
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: 02fde4b6381b3664680447321d45fc21, type: 3}
+  - {fileID: 8428707541881594714, guid: ed3fb480b85ef5846a0d3c096bc138c4, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
@@ -9999,6 +10034,7 @@ MonoBehaviour:
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
   _holder: {fileID: 223389819}
+  _pointDead: {fileID: 5874619797682430004, guid: e3048f222d936dd45a1324d0acbed211, type: 3}
   _maxCountPrefabsOnWay: 8
   _speed: 10
 --- !u!1 &1510543512
@@ -10655,9 +10691,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1080835178}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 223389817}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
-        m_MethodName: ReloadInPauseSceen
+        m_TargetAssemblyTypeName: Game.Game, Assembly-CSharp
+        m_MethodName: ReloadInLoseSceen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14547,6 +14595,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4450886754898180905, guid: 977708a87ed7064488bc3b1ca7ff3aa9, type: 3}
+      propertyPath: _pointDead
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450886754898180905, guid: 977708a87ed7064488bc3b1ca7ff3aa9, type: 3}
+      propertyPath: _pointLose
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450886754898180905, guid: 977708a87ed7064488bc3b1ca7ff3aa9, type: 3}
       propertyPath: _winScreen
       value: 
       objectReference: {fileID: 1811483991}
@@ -14558,9 +14614,21 @@ PrefabInstance:
       propertyPath: _loseScreen
       value: 
       objectReference: {fileID: 1080835172}
+    - target: {fileID: 4450886754898180905, guid: 977708a87ed7064488bc3b1ca7ff3aa9, type: 3}
+      propertyPath: _canvasGroupLose
+      value: 
+      objectReference: {fileID: 1080835178}
     - target: {fileID: 5799633590134179806, guid: 977708a87ed7064488bc3b1ca7ff3aa9, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385887494998717481, guid: 977708a87ed7064488bc3b1ca7ff3aa9, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385887494998717481, guid: 977708a87ed7064488bc3b1ca7ff3aa9, type: 3}
+      propertyPath: _collider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7481839635254046796, guid: 977708a87ed7064488bc3b1ca7ff3aa9, type: 3}
       propertyPath: m_UseGravity
@@ -15681,8 +15749,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1080835178}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 223389817}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_TargetAssemblyTypeName: Game.Game, Assembly-CSharp
         m_MethodName: Home
         m_Mode: 1
         m_Arguments:

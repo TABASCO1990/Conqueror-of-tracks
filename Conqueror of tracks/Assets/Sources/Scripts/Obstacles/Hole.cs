@@ -1,21 +1,10 @@
-using UnityEngine;
+using Game;
 using Levels;
 
-namespace Obstacle
+public class Hole : LoseCondition
 {
-    public class Hole : MonoBehaviour
+    protected override void Start()
     {
-        private Way way;
-
-        private void Start()
-        {
-            way = transform.parent.parent.GetComponent<Way>();
-        }
-
-        public void StopPlay()
-        {
-            way.Speed = 0;
-            way.DestroyCars();
-        }
+        way = transform.parent.parent.GetComponent<Way>();
     }
 }

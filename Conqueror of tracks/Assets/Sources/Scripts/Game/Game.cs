@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Game
@@ -8,7 +9,9 @@ namespace Game
         [SerializeField] private GameObject _currentLevel;
         [SerializeField] private GameObject _pauseScreen;
         [SerializeField] private GameObject _winScreen;
+        [SerializeField] private GameObject _loseScreen;
         [SerializeField] private GameObject _InfomationBoard;
+        [SerializeField] private GameObject _pointdead;
         [SerializeField] private Player.Player _player;
 
         private void OnEnable()
@@ -26,7 +29,19 @@ namespace Game
             _currentLevel.SetActive(false);
             _pauseScreen.SetActive(false);
             _currentLevel.SetActive(true);
-            _player.transform.localPosition = Vector3.zero;
+            _player.transform.position = Vector3.zero;
+            _player.transform.rotation = Quaternion.identity;
+            Time.timeScale = 1;
+        }
+
+        public void ReloadInLoseSceen()
+        {
+            _currentLevel.SetActive(false);
+            _loseScreen.SetActive(false);
+            _currentLevel.SetActive(true);
+            _player.transform.position = Vector3.zero;
+            _player.transform.rotation = Quaternion.identity;
+            DOTween.KillAll();
             Time.timeScale = 1;
         }
 
@@ -45,6 +60,8 @@ namespace Game
             Time.timeScale = 1;
             _pauseScreen.SetActive(false);
             _player.transform.localPosition = Vector3.zero;
+            _player.transform.rotation = Quaternion.identity;
+            DOTween.KillAll();
         }
 
         public void Resume()
@@ -63,6 +80,7 @@ namespace Game
             _currentLevel.SetActive(false);
             _levelSelection.SetLevel();
             _player.transform.localPosition = Vector3.zero;
+            _player.transform.rotation = Quaternion.identity;
         }
 
         private void OnSettledLevel(GameObject map)

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7488772379615078499}
   - component: {fileID: 688937732400189447}
-  - component: {fileID: 4147212951938082281}
+  - component: {fileID: 1335522490616346807}
   m_Layer: 0
   m_Name: RoadHoleCenter
   m_TagString: Untagged
@@ -53,9 +53,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 3}
+  m_Size: {x: 2, y: 0, z: 3}
   m_Center: {x: 0, y: 0, z: 3}
---- !u!114 &4147212951938082281
+--- !u!114 &1335522490616346807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

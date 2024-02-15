@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6716354267639513679}
   - component: {fileID: 2777562135397854059}
-  - component: {fileID: 5948545687302399695}
+  - component: {fileID: 2587795375582284737}
   m_Layer: 0
   m_Name: RoadHoleRight
   m_TagString: Untagged
@@ -160,9 +160,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 3}
+  m_Size: {x: 2, y: 0, z: 3}
   m_Center: {x: 2.5, y: 0, z: 3}
---- !u!114 &5948545687302399695
+--- !u!114 &2587795375582284737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

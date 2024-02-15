@@ -20,6 +20,7 @@ namespace Game
 
         public void SetSpeed()
         {
+            
             SetedSpeed?.Invoke(CurrentSpeed);
         }
     }
