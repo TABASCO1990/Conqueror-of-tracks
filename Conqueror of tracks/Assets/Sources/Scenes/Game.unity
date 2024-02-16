@@ -537,7 +537,6 @@ Transform:
   - {fileID: 1348302268}
   - {fileID: 1492048678}
   - {fileID: 1359481714}
-  - {fileID: 3390520741355916877}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &57119071
@@ -7126,6 +7125,7 @@ Transform:
   m_Children:
   - {fileID: 1701941522}
   - {fileID: 1864547243}
+  - {fileID: 3390520741355916877}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &946818881
@@ -9504,29 +9504,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 1423882130}
   _roadsPrefabs:
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 02fde4b6381b3664680447321d45fc21, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: acc3c900d5673ea4894ca00074b0b2c2, type: 3}
-  - {fileID: 460771656534659938, guid: f14e4215d422f9c46ac5fe7e466c545d, type: 3}
-  - {fileID: 6401471035903639573, guid: a78cb89c4181fb448bbd9a2a35a12ed1, type: 3}
-  - {fileID: 8428707541881594714, guid: ed3fb480b85ef5846a0d3c096bc138c4, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
-  - {fileID: 1190054656782155414, guid: 7406907c2fed0c6459877283ad4a0c35, type: 3}
-  - {fileID: 1190054656782155414, guid: 1aefa0eb6f7916d44b37761f30b7627a, type: 3}
+  - {fileID: 1190054656782155414, guid: c661065d6baf3ab4a830bb0f15aa153a, type: 3}
+  - {fileID: 1190054656782155414, guid: 323a4d9de0f11094095f939158b6f850, type: 3}
+  - {fileID: 1190054656782155414, guid: 9c44fcf5be0a1c648b93df13ebbaa73c, type: 3}
+  - {fileID: 1190054656782155414, guid: 5a463c614a812b34e85363c2ee214755, type: 3}
+  - {fileID: 1190054656782155414, guid: 516944e0117a77146985062383257c1c, type: 3}
+  - {fileID: 1190054656782155414, guid: c71c3e05e73c48848969f6af3187b8c1, type: 3}
+  - {fileID: 1190054656782155414, guid: 323a4d9de0f11094095f939158b6f850, type: 3}
+  - {fileID: 1190054656782155414, guid: c661065d6baf3ab4a830bb0f15aa153a, type: 3}
+  - {fileID: 1190054656782155414, guid: 5a463c614a812b34e85363c2ee214755, type: 3}
+  - {fileID: 1190054656782155414, guid: 516944e0117a77146985062383257c1c, type: 3}
+  - {fileID: 1190054656782155414, guid: 9c44fcf5be0a1c648b93df13ebbaa73c, type: 3}
+  - {fileID: 1190054656782155414, guid: c71c3e05e73c48848969f6af3187b8c1, type: 3}
+  - {fileID: 1190054656782155414, guid: 9c44fcf5be0a1c648b93df13ebbaa73c, type: 3}
+  - {fileID: 1190054656782155414, guid: c71c3e05e73c48848969f6af3187b8c1, type: 3}
+  - {fileID: 1190054656782155414, guid: 516944e0117a77146985062383257c1c, type: 3}
+  - {fileID: 1190054656782155414, guid: c661065d6baf3ab4a830bb0f15aa153a, type: 3}
+  - {fileID: 1190054656782155414, guid: 323a4d9de0f11094095f939158b6f850, type: 3}
+  - {fileID: 1190054656782155414, guid: de77293fe117cd14bbbeeb87ecb11f29, type: 3}
   _holder: {fileID: 223389819}
   _pointDead: {fileID: 5874619797682430004, guid: e3048f222d936dd45a1324d0acbed211, type: 3}
   _maxCountPrefabsOnWay: 8
@@ -15888,7 +15883,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 35544319}
+  m_Father: {fileID: 943191550}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

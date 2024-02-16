@@ -73,23 +73,15 @@ namespace Player
             car.transform.DORotate(new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50)), 0.5f).SetLink(gameObject);
         }
 
-        private IEnumerator SetAlpha(float start, float end, float speed, CanvasGroup panelWithAdvice)
-        {
-            float time = 0f;
-            while (time <= speed)
-            {
-                float t = Mathf.SmoothStep(0f, 1f, time / speed);
-                panelWithAdvice.alpha = Mathf.Lerp(start, end, t);
-                yield return null;
-                time += Time.deltaTime;
-            }
-        }
-
         private IEnumerator InitializeDeadLine()
         {
-            _lineDead.enabled = true;
-            yield return new WaitForSeconds(0.2f);
-            _lineDead.enabled = false;
+            for (int i = 0; i < 3; i++)
+            {
+                _lineDead.enabled = true;
+                yield return new WaitForSeconds(0.6f);
+                _lineDead.enabled = false;
+                yield return new WaitForSeconds(0.3f);
+            }
         }
     }
 }
