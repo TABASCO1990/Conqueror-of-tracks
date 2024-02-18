@@ -16,6 +16,10 @@ namespace Player
         [SerializeField] private CanvasGroup _canvasGroupLose;
         [SerializeField] private DataHolder _dataHolder;
         [SerializeField] private TMP_Text _lineDead;
+        [SerializeField] private ParticleSystem _clash;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _coinClip;
+        [SerializeField] private AudioClip _crashCarClip;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -25,12 +29,15 @@ namespace Player
             }
             else if (other.TryGetComponent(out Coin coin))
             {
+                coin.transform.DORotate(new Vector3(-35, transform.position.y, transform.position.z), 0.2f);
                 _dataHolder.AddCoins();
-                Destroy(coin.gameObject);
+                _audioSource.PlayOneShot(_coinClip);
+                Destroy(coin.gameObject,0.2f);
             }
             else if (other.TryGetComponent(out Car car))
             {
                 StartCoroutine(InitializeDeadLine());
+                _audioSource.PlayOneShot(_crashCarClip);
                 SetAnimationCrashEnemy(car);
                 SetAnimationCrashPlayer();
                 Destroy(car.gameObject, 1f);
@@ -68,9 +75,12 @@ namespace Player
 
         private void SetAnimationCrashEnemy(Car car)
         {
+            _clash.transform.position = car.transform.position;
+            _clash.Play();
             car.GetComponent<BoxCollider>().enabled = false;
             car.transform.DOMoveY(2, 0.5f);
             car.transform.DORotate(new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50)), 0.5f).SetLink(gameObject);
+            
         }
 
         private IEnumerator InitializeDeadLine()
