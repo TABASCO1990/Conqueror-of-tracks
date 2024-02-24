@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2843297655237790495}
   - component: {fileID: 5833225049789028664}
   m_Layer: 0
-  m_Name: Road CarPolice Right 1
+  m_Name: Road CarPolice Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _car: {fileID: 5274614556000152112, guid: 712f949b8a5506b4bb91d182347e043c, type: 3}
   _offsetX: 2.5
+  _speed: 6.5
 --- !u!1 &2650784859276724425
 GameObject:
   m_ObjectHideFlags: 0

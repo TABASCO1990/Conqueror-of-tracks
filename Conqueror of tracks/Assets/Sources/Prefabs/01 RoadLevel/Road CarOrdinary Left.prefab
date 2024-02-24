@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _car: {fileID: 8047396614496836039, guid: d51fb92122e40884a973b85845614c30, type: 3}
   _offsetX: -2.5
+  _speed: 6
 --- !u!1 &2650784859276724425
 GameObject:
   m_ObjectHideFlags: 0

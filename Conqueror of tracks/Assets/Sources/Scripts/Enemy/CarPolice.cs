@@ -15,7 +15,7 @@ namespace Enemy
 
         protected override void Move()
         {
-            transform.Translate(Vector3.back * _speed * Time.deltaTime);
+            transform.Translate(Vector3.back * Speed * Time.deltaTime);
         }
 
         private IEnumerator ChangeLaneRoad(float delay)
