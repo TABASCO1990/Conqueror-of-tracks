@@ -5,8 +5,6 @@ namespace Enemy
 {
     public abstract class Car : MonoBehaviour
     {
-        //[SerializeField] protected float _speed;
-
         private float _SpeedRoad;
 
         public float Speed { get; set; }
@@ -14,7 +12,6 @@ namespace Enemy
         private void Start()
         {
             _SpeedRoad = transform.parent.GetComponent<Way>().Speed;
-           //_speed = Random.Range(_SpeedRoad / 3, _SpeedRoad - 1);
         }
 
         private void Update()
