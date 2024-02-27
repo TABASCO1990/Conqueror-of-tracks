@@ -10,7 +10,7 @@ namespace Enemy
 
         private void OnEnable()
         {
-            StartCoroutine(ChangeLaneRoad(Random.Range(2, 5)));
+            StartCoroutine(ChangeLaneRoad(Random.Range(2, 4)));
         }
 
         protected override void Move()
