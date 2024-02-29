@@ -24,7 +24,7 @@ namespace Levels
         private int _currentRoadsCount;
         private float _distance;
         private float _distanceBetweenRoad;
-        private float _zOffsetDeactivate = -30f;
+        private float _zOffsetDeactivate = -33f;
         private float _zOffsetToMoveDown = -20f;
         private GameObject _prefabPoint;
 
