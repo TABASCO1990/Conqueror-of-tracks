@@ -9,11 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2843297655237790495}
-  - component: {fileID: 1566643793883791574}
-  - component: {fileID: 3864157251762948542}
-  - component: {fileID: 463262974089681428}
+  - component: {fileID: 5833225049789028664}
   m_Layer: 0
-  m_Name: RoadHolesLeft
+  m_Name: Road CarOrdinary Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,49 +33,7 @@ Transform:
   - {fileID: 8481429971738547333}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1566643793883791574
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190054656782155414}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 0, z: 3}
-  m_Center: {x: 0, y: 0, z: 3}
---- !u!65 &3864157251762948542
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190054656782155414}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 0, z: 3}
-  m_Center: {x: 2.5, y: 0, z: 3}
---- !u!114 &463262974089681428
+--- !u!114 &5833225049789028664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,10 +42,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1190054656782155414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550f339d49edeba4ab006c3b548ff667, type: 3}
+  m_Script: {fileID: 11500000, guid: 73702360c4ee1ab44b7554d641b63708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsRotate: 0
+  _car: {fileID: 8047396614496836039, guid: d51fb92122e40884a973b85845614c30, type: 3}
+  _offsetX: 2.5
+  _speed: 5
 --- !u!1 &2650784859276724425
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +89,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2650784859276724425}
-  m_Mesh: {fileID: 1354535364492851266, guid: 5c523208f53bbac4ba680537bf2919c1, type: 3}
+  m_Mesh: {fileID: -8634060567236447461, guid: c747efbe90120c744abae10fbf29425f, type: 3}
 --- !u!23 &5588793598323384546
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -153,7 +111,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 67fd317777a4123479b62e54f6415176, type: 2}
-  - {fileID: 2100000, guid: 0757fb5ca748c2044bbb2e25d2768d31, type: 2}
+  - {fileID: 2100000, guid: 895890f52ffc9e141b47c68d9310d9eb, type: 2}
+  - {fileID: 2100000, guid: 67fd317777a4123479b62e54f6415176, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

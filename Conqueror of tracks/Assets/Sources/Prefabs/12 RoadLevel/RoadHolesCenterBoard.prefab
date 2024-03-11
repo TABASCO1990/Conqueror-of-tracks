@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2843297655237790495}
-  - component: {fileID: 1566643793883791574}
-  - component: {fileID: 3864157251762948542}
-  - component: {fileID: 463262974089681428}
+  - component: {fileID: 550850972332778005}
+  - component: {fileID: 8360158667298955928}
+  - component: {fileID: 2350846049171703282}
   m_Layer: 0
-  m_Name: RoadHolesLeft
+  m_Name: RoadHolesCenterBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 8481429971738547333}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1566643793883791574
+--- !u!65 &550850972332778005
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,8 +55,8 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 0, z: 3}
-  m_Center: {x: 0, y: 0, z: 3}
---- !u!65 &3864157251762948542
+  m_Center: {x: -2.5, y: 0, z: 3}
+--- !u!65 &8360158667298955928
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,7 +77,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 0, z: 3}
   m_Center: {x: 2.5, y: 0, z: 3}
---- !u!114 &463262974089681428
+--- !u!114 &2350846049171703282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2650784859276724425}
-  m_Mesh: {fileID: 1354535364492851266, guid: 5c523208f53bbac4ba680537bf2919c1, type: 3}
+  m_Mesh: {fileID: -8886921424038829925, guid: 9b979dffa05b65c469ed096dd53c7171, type: 3}
 --- !u!23 &5588793598323384546
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -152,8 +152,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: bf9e377805adfa34eb01ca80b3507912, type: 2}
   - {fileID: 2100000, guid: 67fd317777a4123479b62e54f6415176, type: 2}
-  - {fileID: 2100000, guid: 0757fb5ca748c2044bbb2e25d2768d31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
