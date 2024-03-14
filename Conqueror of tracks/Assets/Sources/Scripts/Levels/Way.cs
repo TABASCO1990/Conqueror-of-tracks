@@ -86,7 +86,7 @@ namespace Levels
             DestroyCars();
             Destroy(_prefabPoint);           
             _holder.CurrentSpeed = _speed;
-            _holder.CurrentCoins = -1;
+            _holder.CurrentPoints = -1;
             _currentTime = 0;
             _currentRoadsCount = 0;
             IsMoving = true;

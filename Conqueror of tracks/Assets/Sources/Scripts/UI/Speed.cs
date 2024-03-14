@@ -7,7 +7,7 @@ namespace UI
     public class Speed : MonoBehaviour
     {
         [SerializeField] private DataHolder _dataHolder;
-        [SerializeField] private TMP_Text _textCoins;
+        [SerializeField] private TMP_Text _textSpeed;
 
         private void OnEnable()
         {
@@ -21,7 +21,7 @@ namespace UI
 
         private void OnSetedSpeed(float value)
         {
-            _textCoins.text = value + " mph";
+            _textSpeed.text = value + " mph";
         }
     }
 }

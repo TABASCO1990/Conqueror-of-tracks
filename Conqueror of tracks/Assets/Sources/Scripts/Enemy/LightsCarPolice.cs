@@ -36,6 +36,4 @@ public class LightsCarPolice : MonoBehaviour
         _materialRed.color = Color.red;
         _materialBlue.color = Color.blue;
     }
-
-
 }

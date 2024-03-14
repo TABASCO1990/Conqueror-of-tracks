@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace UI
 {
-    public class Coin : MonoBehaviour
+    public class Points : MonoBehaviour
     {
         [SerializeField] private DataHolder _dataHolder;
-        [SerializeField] private TMP_Text _textCoins;
+        [SerializeField] private TMP_Text _textPoints;
 
         private void OnEnable()
         {
@@ -21,7 +21,7 @@ namespace UI
 
         private void OnAddedCoins(int value)
         {
-            _textCoins.text = value + " coins";
+            _textPoints.text = value + " points";
         }
     }
 }

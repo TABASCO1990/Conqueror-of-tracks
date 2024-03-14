@@ -1,27 +1,58 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game
 {
     public class DataHolder : MonoBehaviour, IController
-    {
+    {       
+        public List<int> _scores = new List<int>();
+        private int _countLevels = 18;
+        private int _sumCountPoints;
+
         public float CurrentSpeed { get; set; }
-        public int CurrentCoins { get; set; }
+        public int CurrentPoints { get; set; }
+        public int SumCountPoints => _sumCountPoints;
 
         public event Action<int> AddingCoins;
         public event Action<float> SetedSpeed;
 
-        public void AddCoins()
+        private void Start()
         {
-            CurrentCoins++;
-            print(CurrentCoins);
-            AddingCoins?.Invoke(CurrentCoins);
+            LoadPoints();
+            _sumCountPoints = PlayerPrefs.GetInt("SumScores");
         }
 
-        public void SetSpeed()
+        public void AddCoins()
         {
-            
+            CurrentPoints++;
+            AddingCoins?.Invoke(CurrentPoints);
+        }        
+
+        public void SetSpeed()
+        {           
             SetedSpeed?.Invoke(CurrentSpeed);
+        }
+
+        public void SavePoints()
+        {   
+            _scores[LevelSelection.CurrentLevel-1] = CurrentPoints;
+            PlayerPrefs.SetInt("Scores" + (LevelSelection.CurrentLevel - 1), CurrentPoints);
+
+            _sumCountPoints = _scores.Sum();
+            PlayerPrefs.SetInt("SumScores", _sumCountPoints);
+        }
+
+        private void LoadPoints()
+        {
+            _scores.Clear();
+
+            for (int i = 0; i < _countLevels; i++)
+            {
+                int point = PlayerPrefs.GetInt("Scores" + i);
+                _scores.Add(point);
+            }
         }
     }
 }

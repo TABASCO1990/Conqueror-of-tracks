@@ -25,6 +25,7 @@ namespace Player
         {
             if (other.TryGetComponent(out FinishPoint finishPoint))
             {
+                _dataHolder.SavePoints();
                 _winScreen.SetActive(true);
             }
             else if (other.TryGetComponent(out Coin coin))

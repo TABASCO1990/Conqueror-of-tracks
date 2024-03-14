@@ -30,8 +30,11 @@ namespace Game
 
             for (int i = 0; i < _countUnlockedLevel; i++)
             {
-                _buttons[i].interactable = true;
-            }
+                if (_countUnlockedLevel <= _buttons.Length)
+                {
+                    _buttons[i].interactable = true;
+                }
+            }       
         }
 
         public void Initiate(GameObject map)
