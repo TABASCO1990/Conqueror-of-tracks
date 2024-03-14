@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using YG;
 
 namespace Game
 {
@@ -42,6 +43,8 @@ namespace Game
 
             _sumCountPoints = _scores.Sum();
             PlayerPrefs.SetInt("SumScores", _sumCountPoints);
+
+            YandexGame.FullscreenShow();
         }
 
         private void LoadPoints()

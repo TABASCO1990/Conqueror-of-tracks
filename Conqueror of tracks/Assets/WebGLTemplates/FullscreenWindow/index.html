@@ -35,6 +35,7 @@
       productName: "{{{ PRODUCT_NAME }}}",
       productVersion: "{{{ PRODUCT_VERSION }}}",
       matchWebGLToCanvasSize: true,
+      devicePixelRatio: 2,
       devicePixelRatio: !isMobileDevice ? {{{ parseFloat(RENDER_SCALE) ? parseFloat(RENDER_SCALE) : 2.0 }}} : {{{ parseFloat(MOBILE_RENDER_SCALE) ? parseFloat(MOBILE_RENDER_SCALE) : 1.6 }}},
     };
 

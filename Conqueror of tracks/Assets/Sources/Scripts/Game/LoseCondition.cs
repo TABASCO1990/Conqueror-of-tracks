@@ -1,5 +1,6 @@
 using UnityEngine;
 using Levels;
+using YG;
 
 namespace Game
 {
@@ -12,9 +13,10 @@ namespace Game
         protected abstract void Start();       
 
         public void StopPlay()
-        {
+        {         
             Way.IsMoving = false;
             way.DestroyCars();
+            YandexGame.FullscreenShow();
         }
     }
 }
