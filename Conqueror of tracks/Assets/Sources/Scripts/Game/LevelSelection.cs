@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace Game
 {
@@ -21,7 +22,8 @@ namespace Game
         private void OnEnable()
         {
             AddButtonsLevel();
-            _countUnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+            //_countUnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+            PlayerLoadYG();
 
             foreach (var button in _buttons)
             {
@@ -70,5 +72,14 @@ namespace Game
                 _buttons[i] = _levelButtons.transform.GetChild(i).gameObject.GetComponent<Button>();
             }
         }
+      
+        private void PlayerLoadYG()
+        {
+            _countUnlockedLevel = YandexGame.savesData.curentLevel-1;
+            print("_countUnlockedLevel: " + _countUnlockedLevel);
+        }
+
+
+        private void OnDisable() => YandexGame.GetDataEvent -= PlayerLoadYG;
     }
 }
