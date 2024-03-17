@@ -1,5 +1,7 @@
 ﻿
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace YG
 {
@@ -16,10 +18,12 @@ namespace YG
         // Можно удалить этот код, но тогда удалите и демо (папка Example)
         public int money = 1;                       // Можно задать полям значения по умолчанию
         public int points = 0;
-        public int curentLevel;
+        public int curentLevel = 1;
         public string newPlayerName = "Hello!";
         public bool[] openLevels = new bool[3];
+
         public List<int> scores = new List<int>();
+       
 
         // Ваши сохранения
 
@@ -31,9 +35,10 @@ namespace YG
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
-            // Допустим, задать значения по умолчанию для отдельных элементов массива
-
-            openLevels[1] = true;
+            for (int i = 0; i < 18; i++)
+            {
+                scores.Add(0);
+            }
         }
     }
 }

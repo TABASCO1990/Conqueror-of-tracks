@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ab749a6ca0e94f647b296f8eb6fc0a53
+guid: 46905b71143ec6948b915fe3bac441ae
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - FatCow
+  - Anek Latin Condensed
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

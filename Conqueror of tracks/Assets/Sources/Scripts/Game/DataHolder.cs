@@ -8,9 +8,12 @@ namespace Game
 {
     public class DataHolder : MonoBehaviour, IController
     {
-        public List<int> _scores = new List<int>();
+        [SerializeField] private LeaderboardYG _leaderboardYG;
+ 
         private int _countLevels = 18;
         private int _sumCountPoints;
+
+        public List<int> _scores = new List<int>();
 
         public float CurrentSpeed { get; set; }
         public int CurrentPoints { get; set; }
@@ -21,18 +24,7 @@ namespace Game
 
         private void Start()
         {
-            LoadPoints();
-
-            if (YandexGame.SDKEnabled == true)
-            {
-                PlayerLoadYG();
-                print("Яндекс сохранения");
-            }
-            /*else
-            {
-                _sumCountPoints = PlayerPrefs.GetInt("SumScores");
-                print("PlayerPrefs сохранения");
-            }*/
+            PlayerLoadYG();
         }
 
         public void AddCoins()
@@ -49,13 +41,8 @@ namespace Game
         public void SavePoints()
         {
             _scores[LevelSelection.CurrentLevel - 1] = CurrentPoints;
-            PlayerPrefs.SetInt("Scores" + (LevelSelection.CurrentLevel - 1), CurrentPoints);
-
             _sumCountPoints = _scores.Sum();
-            //PlayerPrefs.SetInt("SumScores", _sumCountPoints);
-
             PlayerSaveYG();
-
             YandexGame.FullscreenShow();
         }
 
@@ -65,20 +52,24 @@ namespace Game
 
             for (int i = 0; i < _countLevels; i++)
             {
-                int point = PlayerPrefs.GetInt("Scores" + i);
-                //int point = YandexGame.savesData.scores[i];
+                int point = YandexGame.savesData.scores[i];
                 _scores.Add(point);
             }
         }
 
         private void PlayerSaveYG()
         {
-            YandexGame.savesData.points = _sumCountPoints;          
+            YandexGame.NewLeaderboardScores("LeaderPoints", _sumCountPoints);
+            _leaderboardYG.NewScore(_sumCountPoints);
+            _leaderboardYG.UpdateLB();
+            YandexGame.savesData.scores[LevelSelection.CurrentLevel - 1] = CurrentPoints;
+            YandexGame.savesData.points = _sumCountPoints;
             YandexGame.SaveProgress();
         }
 
         private void PlayerLoadYG()
         {
+            LoadPoints();
             _sumCountPoints = YandexGame.savesData.points;
         }
 

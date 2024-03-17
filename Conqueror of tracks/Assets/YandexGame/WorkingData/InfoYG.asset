@@ -40,79 +40,10 @@ MonoBehaviour:
     methodName: _SaveProgress
   leaderboardEnable: 1
   saveScoreAnonymousPlayers: 1
-  leaderboardSimulation:
-  - technoName: LeaderPoints
-    entries: 'Test LeaderBoard
-
-      Name: advanced
-
-      1. anonymous: 10
-
-      2.
-      Ivan: 15
-
-      3. Tanya: 23'
-    isDefault: 0
-    isInvertSortOrder: 0
-    decimalOffset: 0
-    type: numeric
-    players:
-    - rank: 1
-      name: anonymous
-      score: 10
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 123
-    - rank: 2
-      name: Ivan
-      score: 15
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 321
-    - rank: 3
-      name: Tanya
-      score: 23
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 456
-    - rank: 4
-      name: Player4
-      score: 30
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 321
-    - rank: 5
-      name: Player this
-      score: 40
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 000
-    - rank: 6
-      name: Player6
-      score: 50
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 321
-    - rank: 7
-      name: Player6
-      score: 111
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 321
-    - rank: 8
-      name: Player6
-      score: 50
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 321
-    - rank: 9
-      name: Player6
-      score: 50
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 321
-    - rank: 10
-      name: Player6
-      score: 50
-      photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 321
-    thisPlayer:
-      rank: 2
-      score: 10
+  leaderboardSimulation: []
   LocalizationEnable: 1
   callingLanguageCheck: 1
-  translateMethod: 0
+  translateMethod: 1
   domainAutoLocalization: com
   CSVFileTranslate:
     format: 0
@@ -147,9 +78,44 @@ MonoBehaviour:
     hi: 0
   fonts:
     defaultFont: []
-    ru: []
-    en: []
-    tr: []
+    ru:
+    - {fileID: 12800000, guid: f289d0fa8339c774da6be6c68f408ebb, type: 3}
+    en:
+    - {fileID: 12800000, guid: b73a79f823b76204287a2658cee02907, type: 3}
+    tr:
+    - {fileID: 12800000, guid: 5eb074e105b8d4a4b8bcb1169cdbe5dc, type: 3}
+    az: []
+    be: []
+    he: []
+    hy: []
+    ka: []
+    et: []
+    fr: []
+    kk: []
+    ky: []
+    lt: []
+    lv: []
+    ro: []
+    tg: []
+    tk: []
+    uk: []
+    uz: []
+    es: []
+    pt: []
+    ar: []
+    id: []
+    ja: []
+    it: []
+    de: []
+    hi: []
+  fontsTMP:
+    defaultFont: []
+    ru:
+    - {fileID: 11400000, guid: 21345772c3d23604f9e3824b22d185f2, type: 2}
+    en:
+    - {fileID: 11400000, guid: f3e1d34c8b8ebff42bcbf2f5b6081522, type: 2}
+    tr:
+    - {fileID: 11400000, guid: 97a81cbc6bbc78f4ca286a73d1b78230, type: 2}
     az: []
     be: []
     he: []
@@ -228,6 +194,6 @@ MonoBehaviour:
   logoImageFormat: 1
   backgroundImageFormat: 3
   pixelRatioEnable: 0
-  pixelRatioValue: 1
+  pixelRatioValue: 2
   loadGameRun: 0
   staticRBTInGame: 0

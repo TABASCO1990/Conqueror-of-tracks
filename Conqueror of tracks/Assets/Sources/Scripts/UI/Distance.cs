@@ -20,7 +20,7 @@ namespace UI
 
         private void OnChangedDistance(float distance)
         {
-            _textDistance.text = distance + "m";
+            _textDistance.text = distance.ToString();
         }
     }
 }

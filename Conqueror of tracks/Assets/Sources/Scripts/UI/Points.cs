@@ -21,7 +21,7 @@ namespace UI
 
         private void OnAddedCoins(int value)
         {
-            _textPoints.text = value + " points";
+            _textPoints.text = value.ToString();
         }
     }
 }

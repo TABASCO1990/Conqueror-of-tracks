@@ -21,7 +21,7 @@ namespace UI
 
         private void OnSetedSpeed(float value)
         {
-            _textSpeed.text = value + " mph";
+            _textSpeed.text = value.ToString();
         }
     }
 }

@@ -1,12 +1,13 @@
 using TMPro;
 using UnityEngine;
 using Game;
+using UnityEngine.UI;
 
 public class Result : MonoBehaviour
 {
     [SerializeField] private DataHolder _dataHolder;
-    [SerializeField] private TMP_Text _points;
-    [SerializeField] private TMP_Text _sumPoints;
+    [SerializeField] private Text _points;
+    [SerializeField] private Text _sumPoints;
 
     private void OnEnable()
     {

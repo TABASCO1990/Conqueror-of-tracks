@@ -22,7 +22,6 @@ namespace Game
         private void OnEnable()
         {
             AddButtonsLevel();
-            //_countUnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
             PlayerLoadYG();
 
             foreach (var button in _buttons)
@@ -38,6 +37,8 @@ namespace Game
                 }
             }       
         }
+
+        private void OnDisable() => YandexGame.GetDataEvent -= PlayerLoadYG;
 
         public void Initiate(GameObject map)
         {
@@ -75,11 +76,7 @@ namespace Game
       
         private void PlayerLoadYG()
         {
-            _countUnlockedLevel = YandexGame.savesData.curentLevel-1;
-            print("_countUnlockedLevel: " + _countUnlockedLevel);
-        }
-
-
-        private void OnDisable() => YandexGame.GetDataEvent -= PlayerLoadYG;
+            _countUnlockedLevel = YandexGame.savesData.curentLevel;
+        }       
     }
 }
