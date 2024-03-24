@@ -31,7 +31,7 @@ MonoBehaviour:
   loadAdWithDelaySimulation: 0
   testErrorOfRewardedAdsInEditor: 0
   saveCloud: 1
-  flush: 0
+  flush: 1
   localSaveSync: 1
   saveCloudInterval: 0
   saveOnQuitGame: 0
@@ -40,7 +40,37 @@ MonoBehaviour:
     methodName: _SaveProgress
   leaderboardEnable: 1
   saveScoreAnonymousPlayers: 1
-  leaderboardSimulation: []
+  leaderboardSimulation:
+  - technoName: LeaderPoints
+    entries: 
+    isDefault: 1
+    isInvertSortOrder: 0
+    decimalOffset: 0
+    type: 
+    players:
+    - rank: 1
+      name: q
+      score: 0
+      photo: 
+      uniqueID: 
+    - rank: 2
+      name: w
+      score: 0
+      photo: 
+      uniqueID: 
+    - rank: 3
+      name: e
+      score: 0
+      photo: 
+      uniqueID: 
+    - rank: 4
+      name: e
+      score: 40
+      photo: 
+      uniqueID: 000
+    thisPlayer:
+      rank: 4
+      score: 40
   LocalizationEnable: 1
   callingLanguageCheck: 1
   translateMethod: 1
@@ -111,11 +141,11 @@ MonoBehaviour:
   fontsTMP:
     defaultFont: []
     ru:
-    - {fileID: 11400000, guid: 21345772c3d23604f9e3824b22d185f2, type: 2}
+    - {fileID: 11400000, guid: 6c262f4d1b9338043a2e06b7932ad531, type: 2}
     en:
     - {fileID: 11400000, guid: f3e1d34c8b8ebff42bcbf2f5b6081522, type: 2}
     tr:
-    - {fileID: 11400000, guid: 97a81cbc6bbc78f4ca286a73d1b78230, type: 2}
+    - {fileID: 11400000, guid: 62a2365f2bdd08946903fa4f1821b098, type: 2}
     az: []
     be: []
     he: []
@@ -189,8 +219,8 @@ MonoBehaviour:
     consumed: 1
   metricaEnable: 0
   metricaCounterID: 0
-  debug: 1
-  archivingBuild: 1
+  debug: 0
+  archivingBuild: 0
   logoImageFormat: 1
   backgroundImageFormat: 3
   pixelRatioEnable: 0

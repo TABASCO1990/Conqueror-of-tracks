@@ -36,5 +36,13 @@ namespace Levels
             _currentIndexPool++;
             return result != null;
         }
+
+        protected bool TryGetObjectFree(out GameObject result)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, 0);
+
+            result = _pool.First(p => p.activeSelf == false);
+            return result != null;
+        }
     }
 }

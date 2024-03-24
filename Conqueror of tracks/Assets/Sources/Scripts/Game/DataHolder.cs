@@ -2,14 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using YG;
+using YG.Utils.LB;
 
 namespace Game
 {
     public class DataHolder : MonoBehaviour, IController
     {
         [SerializeField] private LeaderboardYG _leaderboardYG;
- 
+        [SerializeField] private Text _rank;
+        [SerializeField] private Text _rankStart;
+        [SerializeField] private Text _nameBestPlayer;
+
         private int _countLevels = 18;
         private int _sumCountPoints;
 
@@ -21,6 +26,10 @@ namespace Game
 
         public event Action<int> AddingCoins;
         public event Action<float> SetedSpeed;
+
+        private void OnEnable() => YandexGame.GetDataEvent += PlayerLoadYG;
+
+        private void OnDisable() => YandexGame.GetDataEvent -= PlayerLoadYG;
 
         private void Start()
         {
@@ -40,10 +49,28 @@ namespace Game
 
         public void SavePoints()
         {
+            SetPlayerRank();
             _scores[LevelSelection.CurrentLevel - 1] = CurrentPoints;
             _sumCountPoints = _scores.Sum();
             PlayerSaveYG();
             YandexGame.FullscreenShow();
+        }
+
+        private void SetPlayerRank()
+        {
+            YandexGame.GetLeaderboard(nameLB: "LeaderPoints", maxQuantityPlayers: 10, quantityTop: 3, quantityAround: 3, photoSizeLB: "small");
+            YandexGame.onGetLeaderboard += OnGetLeaderboard;
+        }
+
+        private void OnGetLeaderboard(LBData data)
+        {
+            _rank.text = data.thisPlayer.rank.ToString();
+            _rankStart.text = data.thisPlayer.rank.ToString();
+
+            if (YandexGame.initializedLB)
+            {
+                _nameBestPlayer.text = data.players[0].name.ToString();
+            }
         }
 
         private void LoadPoints()
@@ -69,12 +96,9 @@ namespace Game
 
         private void PlayerLoadYG()
         {
+            SetPlayerRank();
             LoadPoints();
             _sumCountPoints = YandexGame.savesData.points;
         }
-
-        private void OnEnable() => YandexGame.GetDataEvent += PlayerLoadYG;
-
-        private void OnDisable() => YandexGame.GetDataEvent -= PlayerLoadYG;
     }
 }

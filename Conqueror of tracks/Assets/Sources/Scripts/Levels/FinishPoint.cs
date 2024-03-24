@@ -18,8 +18,11 @@ public class FinishPoint : MonoBehaviour
     {
         if (YandexGame.savesData.curentLevel == LevelSelection.CurrentLevel)
         {
-            YandexGame.savesData.curentLevel = YandexGame.savesData.curentLevel + 1;
-            YandexGame.SaveProgress();
+            if (LevelSelection.CurrentLevel != 18)
+            {
+                YandexGame.savesData.curentLevel = YandexGame.savesData.curentLevel + 1;
+                YandexGame.SaveProgress();
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
 using DG.Tweening;
+using Levels;
+using Player;
 using UnityEngine;
 
 namespace Game
@@ -11,7 +13,7 @@ namespace Game
         [SerializeField] private GameObject _winScreen;
         [SerializeField] private GameObject _loseScreen;
         [SerializeField] private GameObject _InfomationBoard;
-        [SerializeField] private GameObject _pointdead;
+        [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private Player.Player _player;
 
         private void OnEnable()

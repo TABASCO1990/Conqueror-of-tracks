@@ -1,7 +1,9 @@
-using TMPro;
 using UnityEngine;
 using Game;
 using UnityEngine.UI;
+using YG;
+using YG.Utils.LB;
+using System;
 
 public class Result : MonoBehaviour
 {
@@ -19,9 +21,9 @@ public class Result : MonoBehaviour
         OnShowPoints();
     }
 
-    private void OnShowPoints()
+    public void OnShowPoints()
     {
         _points.text = _dataHolder.CurrentPoints.ToString();
-        _sumPoints.text = _dataHolder.SumCountPoints.ToString();      
+        _sumPoints.text = _dataHolder.SumCountPoints.ToString();
     }
 }

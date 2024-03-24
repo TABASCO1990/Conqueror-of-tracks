@@ -13,6 +13,7 @@ namespace Game
         [SerializeField] private GameObject _pauseButton;
         [SerializeField] private GameObject _infomationBoard;
         [SerializeField] private GameObject _sceenGameIsOver;
+        [SerializeField] private GameObject _soundButton;
 
         private int _countUnlockedLevel;
         private Button[] _buttons;
@@ -45,6 +46,7 @@ namespace Game
             gameObject.SetActive(false);
             map.SetActive(true);
             _pauseButton.SetActive(true);
+            _soundButton.SetActive(true);
             _infomationBoard.SetActive(true);
             SettledLevel?.Invoke(map);
         }

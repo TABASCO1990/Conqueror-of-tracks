@@ -21,8 +21,8 @@ namespace YG
         public int curentLevel = 1;
         public string newPlayerName = "Hello!";
         public bool[] openLevels = new bool[3];
-
-        public List<int> scores = new List<int>();
+        public int[] scores = new int[18];
+        public bool IsSound = true;
        
 
         // Ваши сохранения
@@ -35,10 +35,7 @@ namespace YG
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
-            for (int i = 0; i < 18; i++)
-            {
-                scores.Add(0);
-            }
+            
         }
     }
 }
