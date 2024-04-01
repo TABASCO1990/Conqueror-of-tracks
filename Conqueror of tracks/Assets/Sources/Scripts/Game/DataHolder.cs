@@ -14,15 +14,18 @@ namespace Game
         [SerializeField] private Text _rank;
         [SerializeField] private Text _rankStart;
         [SerializeField] private Text _nameBestPlayer;
+        [SerializeField] private GameObject[] _vehicles;
 
         private int _countLevels = 18;
         private int _sumCountPoints;
+        private int _curentIndexVehicles;
 
         public List<int> _scores = new List<int>();
 
         public float CurrentSpeed { get; set; }
         public int CurrentPoints { get; set; }
         public int SumCountPoints => _sumCountPoints;
+        public GameObject[] Vehicles => _vehicles;
 
         public event Action<int> AddingCoins;
         public event Action<float> SetedSpeed;
@@ -73,6 +76,12 @@ namespace Game
             }
         }
 
+        public void SetVehicles()
+        {
+            _curentIndexVehicles = YandexGame.savesData.CurrentIndexVehicles;
+            _vehicles[_curentIndexVehicles].SetActive(true);
+        }
+
         private void LoadPoints()
         {
             _scores.Clear();
@@ -99,6 +108,7 @@ namespace Game
             SetPlayerRank();
             LoadPoints();
             _sumCountPoints = YandexGame.savesData.points;
+            SetVehicles();
         }
     }
 }

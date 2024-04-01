@@ -23,7 +23,8 @@ namespace YG
         public bool[] openLevels = new bool[3];
         public int[] scores = new int[18];
         public bool IsSound = true;
-       
+        public int CurrentIndexVehicles = 0;
+
 
         // Ваши сохранения
 

@@ -16,11 +16,10 @@ public class SpringboardSmall : MonoBehaviour
     {
         if(other.TryGetComponent(out Player.Player player))
         {    
-            DOTween.Sequence().Append(player.transform.DORotate(new Vector3(-11f, transform.position.y, transform.position.z), 0.1f)).
+            DOTween.Sequence().Append(player.transform.DORotate(new Vector3(-11f, 0, 0), 0.1f)).
                 Append(player.transform.DOMoveY(1f, 9 / _controller.CurrentSpeed)).
                 Append(player.transform.DOMoveY(0f, 0.7f)).
-                Append(player.transform.DORotate(Vector3.zero,0.1f)).SetLink(gameObject);
-            
+                Append(player.transform.DORotate(Vector3.zero,0.1f)).SetLink(gameObject);           
         }
     }
 }

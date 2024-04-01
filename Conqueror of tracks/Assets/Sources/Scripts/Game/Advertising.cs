@@ -29,7 +29,7 @@ public class Advertising : MonoBehaviour
 
     private void AddCar()
     {
-        print("Машина");
+        _dataHolder.SetVehicles();
     }
 
     public void ExampleOpenRewardAd(int id)
