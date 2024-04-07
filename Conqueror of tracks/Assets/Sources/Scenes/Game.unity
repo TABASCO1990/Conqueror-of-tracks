@@ -16636,7 +16636,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -28410,6 +28410,7 @@ GameObject:
   - component: {fileID: 1871236157}
   - component: {fileID: 1871236159}
   - component: {fileID: 1871236158}
+  - component: {fileID: 1871236160}
   m_Layer: 5
   m_Name: Logotype Image
   m_TagString: Untagged
@@ -28433,8 +28434,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000019073486, y: -66.9979}
-  m_SizeDelta: {x: 221.3076, y: 133.9958}
+  m_AnchoredPosition: {x: 0, y: -107.03415}
+  m_SizeDelta: {x: 477.2223, y: 214.0683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871236158
 MonoBehaviour:
@@ -28456,7 +28457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 49e304264e7a5b049a908775498947c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3ba86b6358740048bc05328f008b4a1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28474,6 +28475,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871236156}
   m_CullTransparentMesh: 1
+--- !u!114 &1871236160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871236156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6bf777d78d48340962139325248f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _language: {fileID: 1871236158}
+  _sprites:
+  - {fileID: 21300000, guid: a3ba86b6358740048bc05328f008b4a1, type: 3}
+  - {fileID: 21300000, guid: 3fedd29fe34395b4b9d640028e3e0963, type: 3}
+  - {fileID: 21300000, guid: 7488eda61f8999647917bdd11691c482, type: 3}
 --- !u!1 &1875379771
 GameObject:
   m_ObjectHideFlags: 0
@@ -29361,6 +29379,7 @@ GameObject:
   - component: {fileID: 1948373974}
   - component: {fileID: 1948373973}
   - component: {fileID: 1948373975}
+  - component: {fileID: 1948373976}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -29449,6 +29468,58 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1948373976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948373971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 1948373973}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: 
+  en: 
+  tr: 
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 
+  componentTextField: 0
+  countLang: 0
 --- !u!1 &1949605501
 GameObject:
   m_ObjectHideFlags: 0
@@ -30411,7 +30482,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 213.54456, y: 0}
+  m_SizeDelta: {x: 213.3252, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2023355593
 MonoBehaviour:
@@ -37062,7 +37133,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 13
+  m_Text: '8
+
+'
 --- !u!222 &2133857623
 CanvasRenderer:
   m_ObjectHideFlags: 0

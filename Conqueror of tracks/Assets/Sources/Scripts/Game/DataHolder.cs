@@ -108,7 +108,7 @@ namespace Game
             SetPlayerRank();
             LoadPoints();
             _sumCountPoints = YandexGame.savesData.points;
-            SetVehicles();
+            SetVehicles();         
         }
     }
 }

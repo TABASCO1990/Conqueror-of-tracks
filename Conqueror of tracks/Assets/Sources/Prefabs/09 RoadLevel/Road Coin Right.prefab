@@ -35,7 +35,6 @@ Transform:
   - {fileID: 2277866863857391768}
   - {fileID: 4195979866554487741}
   - {fileID: 2552463856139126274}
-  - {fileID: 4222048612197766584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2650784859276724425
@@ -210,7 +209,10 @@ PrefabInstance:
       value: Cristales (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -3957782524123411102, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
+    - {fileID: -2793727289926329592, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
+    - {fileID: -8513424388201257645, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
@@ -281,80 +283,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5903693112141663494, guid: 28b044befbc13944d8c2df3a483a1edb, type: 3}
   m_PrefabInstance: {fileID: 3571551442042517819}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4403680041813668435
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2843297655237790495}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11.356447
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.2185624
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-      propertyPath: m_Name
-      value: Cristales (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
---- !u!4 &4222048612197766584 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
-  m_PrefabInstance: {fileID: 4403680041813668435}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4445514663204402262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -420,7 +348,10 @@ PrefabInstance:
       value: Cristales
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -3957782524123411102, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
+    - {fileID: -2793727289926329592, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
+    - {fileID: -8513424388201257645, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 621ae1fe6f984b94bade92c104846d13, type: 3}
