@@ -36,7 +36,7 @@ namespace Game
                 {
                     _buttons[i].interactable = true;
                 }
-            }       
+            }
         }
 
         private void OnDisable() => YandexGame.GetDataEvent -= PlayerLoadYG;
@@ -63,7 +63,7 @@ namespace Game
             {
                 _sceenGameIsOver.SetActive(true);
             }
-        }
+        }      
 
         private void AddButtonsLevel()
         {
