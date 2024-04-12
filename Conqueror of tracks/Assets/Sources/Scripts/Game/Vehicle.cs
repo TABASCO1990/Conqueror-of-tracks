@@ -23,15 +23,18 @@ public class Vehicle : MonoBehaviour
     {
         for (int i = 0; i < _dataHolder.Vehicles.Length; i++)
         {
-            if(i == _index)
+            if (i == _index)
             {
                 _dataHolder.Vehicles[i].SetActive(true);
+
+                _dataHolder.ButtonsVehicles[i].SetActive(false);
                 YandexGame.savesData.CurrentIndexVehicles = _index;
                 YandexGame.SaveProgress();
             }
             else
             {
                 _dataHolder.Vehicles[i].SetActive(false);
+                _dataHolder.ButtonsVehicles[i].SetActive(true);
             }
         }
     }

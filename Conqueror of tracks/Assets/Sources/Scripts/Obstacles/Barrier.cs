@@ -2,7 +2,6 @@ using UnityEngine;
 using DG.Tweening;
 using Game;
 using Levels;
-using Unity.VisualScripting;
 
 public class Barrier : LoseCondition
 {

@@ -16,7 +16,7 @@ namespace Game
         {         
             Way.IsMoving = false;
             way.DestroyCars();
-            YandexGame.FullscreenShow();
+            //YandexGame.FullscreenShow();
         }
     }
 }
