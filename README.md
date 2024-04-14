@@ -8,9 +8,7 @@
 
 >[Яндекс игры](https://yandex.ru/games/search?k50id=0100000047600576162_47600576162&yclid=13680758808714412031&query=дорога%20к%20вершине#app=252553).
 
->[YouTube](https://youtu.be/nzpbSx7p15M).
-
-[![Watch the video](https://i.postimg.cc/G9w4fLXK/Winner-Rus.png)](https://youtu.be/nzpbSx7p15M)
+>[YouTube](https://youtu.be/2V2KwlJDV5E).
 
 ## Применение 
 
