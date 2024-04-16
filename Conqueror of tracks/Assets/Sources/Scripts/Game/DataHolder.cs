@@ -58,19 +58,21 @@ namespace Game
             _scores[LevelSelection.CurrentLevel - 1] = CurrentPoints;
             _sumCountPoints = _scores.Sum();
             PlayerSaveYG();
-            //YandexGame.FullscreenShow();
         }
 
         private void SetPlayerRank()
         {
-            YandexGame.GetLeaderboard(nameLB: "LeaderPoints", maxQuantityPlayers: 10, quantityTop: 3, quantityAround: 3, photoSizeLB: "small");
+            YandexGame.GetLeaderboard(nameLB: "Leaders", maxQuantityPlayers: 10, quantityTop: 3, quantityAround: 3, photoSizeLB: "small");
             YandexGame.onGetLeaderboard += OnGetLeaderboard;
         }
 
         private void OnGetLeaderboard(LBData data)
         {
-            _rank.text = data.thisPlayer.rank.ToString();
-            _rankStart.text = data.thisPlayer.rank.ToString();
+            if (data.thisPlayer != null)
+            {
+                _rank.text = data.thisPlayer.rank.ToString();
+                _rankStart.text = data.thisPlayer.rank.ToString();
+            }
 
             if (YandexGame.initializedLB)
             {
@@ -98,7 +100,7 @@ namespace Game
 
         private void PlayerSaveYG()
         {
-            YandexGame.NewLeaderboardScores("LeaderPoints", _sumCountPoints);
+            YandexGame.NewLeaderboardScores("Leaders", _sumCountPoints);
             _leaderboardYG.NewScore(_sumCountPoints);
             _leaderboardYG.UpdateLB();
             YandexGame.savesData.scores[LevelSelection.CurrentLevel - 1] = CurrentPoints;

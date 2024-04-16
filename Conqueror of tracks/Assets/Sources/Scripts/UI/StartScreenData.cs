@@ -12,7 +12,7 @@ public class StartScreenData : MonoBehaviour
 
     private void Awake()
     {
-        YandexGame.GetLeaderboard(nameLB: "LeaderPoints", maxQuantityPlayers: 10, quantityTop: 3, quantityAround: 3, photoSizeLB: "small");
+        YandexGame.GetLeaderboard(nameLB: "Leaders", maxQuantityPlayers: 10, quantityTop: 3, quantityAround: 2, photoSizeLB: "small");
     }
 
     private void OnEnable()
